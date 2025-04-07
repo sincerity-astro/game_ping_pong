@@ -37,6 +37,11 @@ class Ball(GameSprite):
         self.rect.y += self.speedy
         if sprite.collide_rect(self, racket1) or sprite.collide_rect(self, racket2):
             self.speedx*= -1
+    def wall(self):
+        if self.rect.x == 5:
+            game = False
+        if self.rect.x == 495:
+            game = False
         
         
         
