@@ -48,9 +48,16 @@ font1 = font.Font(None, 35)
 lose1 = font1.render('о нет 1', True, (180, 0, 0))
 lose2 = font1.render('о нет 2', True, (180, 0, 0))
 
+ball = Ball('pingponggim2.jpg', 200, 200, 15, 25, 25)
+racket1 = Player('pingponggim3', 30, 250, 15, 15, 50)
+racket2 = Player('pingponggim3', 670, 250, 15, 15, 50)
+
 game = True
 
 while game == True:
+    ball.update(racket1, racket2)
+    racket1.moveRIGHT()
+    racket2.moveLEFT()
     for e in event.get():
         if e.type == QUIT:
             game = False
