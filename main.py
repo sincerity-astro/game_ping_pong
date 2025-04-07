@@ -26,7 +26,7 @@ class Player(GameSprite):
             self.rect.y += self.speed
     def moveLEFT(self):
         keypress = key.get_pressed()
-        if keypress[K_w] and self.rect.y > 5:
+        if keypress[K_w] and self.rect.y > 10:
             self.rect.y -= self.speed
         if keypress[K_s] and self.rect.y < 490:
             self.rect.y += self.speed
