@@ -37,18 +37,16 @@ class Ball(GameSprite):
         self.rect.y += self.speedy
         if sprite.collide_rect(self, racket1) or sprite.collide_rect(self, racket2):
             self.speedx*= -1
-    def wall(self):
-        if self.rect.x == 5:
-            game = False
-        if self.rect.x == 495:
-            game = False
-        
         
         
 
 window = display.set_mode((700, 500))
 display.set_caption('ъъъ')
-background = transform.scale(image.load('pingpong.jpg'), (700, 500))
+background = transform.scale(image.load('pingponggim1.jpg'), (700, 500))
+
+font1 = font.Font(None, 35)
+lose1 = font1.render('о нет 1', True, (180, 0, 0))
+lose2 = font1.render('о нет 2', True, (180, 0, 0))
 
 game = True
 
@@ -56,6 +54,12 @@ while game == True:
     for e in event.get():
         if e.type == QUIT:
             game = False
+    if ball.rect.x < 0:
+        finish = True
+        window.blit(lose1, (200, 200))
+    if ball.rect.x > 700:
+        finish = True
+        window.blit(lose2, (200, 200))
 
     display.update()
     clock.tick(FPS)
